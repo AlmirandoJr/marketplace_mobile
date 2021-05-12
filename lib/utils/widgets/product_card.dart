@@ -32,22 +32,18 @@ Container productCard({
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
-              child: Hero(
-                tag: id.toString(),
-                child: Container(
-                  height: Get.height * 0.25,
-                  width: Get.height * 0.25,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        img,
-                      ),
-                      fit: BoxFit.cover,
+              child: Container(
+                height: Get.height * 0.25,
+                width: Get.height * 0.25,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      img,
                     ),
-                    color:
-                        Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-                            .withOpacity(1.0),
+                    fit: BoxFit.cover,
                   ),
+                  color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+                      .withOpacity(1.0),
                 ),
               ),
             ),
@@ -55,7 +51,7 @@ Container productCard({
               height: 2,
             ),
             Text(
-              name ?? "Nome não especificado",
+              name.toUpperCase() ?? "Nome não especificado",
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(

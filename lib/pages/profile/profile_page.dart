@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:marketplace/pages/sign/setup_page.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -8,6 +10,17 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView(
+      children: [
+        Center(
+          child: IconButton(
+            icon: Icon(Icons.group_rounded),
+            onPressed: () {
+              Get.to(SetupPage());
+            },
+          ),
+        )
+      ],
+    );
   }
 }

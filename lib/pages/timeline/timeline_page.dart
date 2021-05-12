@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:marketplace/core/model/product_model.dart';
 import 'package:marketplace/utils/global.dart';
 import '../../utils/widgets/product_card.dart';
+import 'targets/product_description.dart';
 
 class TimelinePage extends StatefulWidget {
   @override
@@ -29,7 +31,7 @@ class _TimelinePageState extends State<TimelinePage> {
               "Marketplace",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 30,
+                fontSize: 32,
                 fontFamily: titleFont,
                 //fontWeight: FontWeight.w500,
               ),
@@ -65,14 +67,20 @@ class _TimelinePageState extends State<TimelinePage> {
             Container(
               height: Get.height * 0.32,
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: demoProducts.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (index, context) {
-                  return productCard(
-                    img: "assets/images/repolho.jpg",
-                    name: "REPOLHO",
-                    price: 200,
-                    unity: "Kg",
+                itemBuilder: (context, index) {
+                  var item = demoProducts[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDescription(product: item));
+                    },
+                    child: productCard(
+                      img: item.images[0],
+                      name: item.title,
+                      price: item.price,
+                      unity: item.unity,
+                    ),
                   );
                 },
               ),
@@ -99,14 +107,23 @@ class _TimelinePageState extends State<TimelinePage> {
             Container(
               height: Get.height * 0.32,
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: demoProducts.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (index, context) {
-                  return productCard(
-                    img: "assets/images/repolho.jpg",
-                    name: "REPOLHO",
-                    price: 200,
-                    unity: "Kg",
+                itemBuilder: (context, index) {
+                  demoProducts.sort((b, a) {
+                    return b.qtdSold.compareTo(a.qtdSold);
+                  });
+                  var item = demoProducts[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDescription(product: item));
+                    },
+                    child: productCard(
+                      img: item.images[0],
+                      name: item.title,
+                      price: item.price,
+                      unity: item.unity,
+                    ),
                   );
                 },
               ),

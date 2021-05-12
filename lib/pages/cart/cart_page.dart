@@ -19,7 +19,7 @@ class _CartPageState extends State<CartPage> {
               "Carrinho",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 30,
+                fontSize: 32,
                 fontFamily: titleFont,
                 //fontWeight: FontWeight.w500,
               ),

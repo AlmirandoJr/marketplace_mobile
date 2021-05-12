@@ -19,7 +19,7 @@ class _SearchPageState extends State<SearchPage> {
               "Pesquisa",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 30,
+                fontSize: 32,
                 fontFamily: titleFont,
                 //fontWeight: FontWeight.w500,
               ),
@@ -29,8 +29,11 @@ class _SearchPageState extends State<SearchPage> {
             ),
             TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: greenColor, width: 2.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: greenColor, width: 3.0),
                 ),
                 hintText: 'Pesquisar produtos, mercados e vendedores',
                 hintStyle: TextStyle(fontSize: 14, color: Colors.black),
