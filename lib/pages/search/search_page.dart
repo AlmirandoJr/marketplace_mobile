@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace/core/model/product_model.dart';
 import 'package:marketplace/utils/global.dart';
 
 class SearchPage extends StatefulWidget {
@@ -39,6 +40,41 @@ class _SearchPageState extends State<SearchPage> {
                 hintStyle: TextStyle(fontSize: 14, color: Colors.black),
               ),
             ),
+            SizedBox(height: 15),
+            /*Column(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.brown.shade800,
+                ),
+                Text('AH'),
+              ],
+            ),*/
+            Container(
+              height: 350,
+              child: GridView.builder(
+                itemCount: demoProducts.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: (BuildContext context, int index) {
+                  var item = demoProducts[index];
+                  return Column(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.brown.shade800,
+                        backgroundImage: AssetImage(item.images[0]),
+                        radius: 70,
+                      ),
+                      Text(item.category)
+                    ],
+                  );
+                },
+              ),
+            ),
+
+            /*CircleAvatar(
+              backgroundColor: Colors.brown.shade800,
+              child: Text('AH'),
+            )*/
           ],
         ),
       ),

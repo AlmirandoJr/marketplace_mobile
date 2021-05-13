@@ -9,7 +9,6 @@ Container productCard({
   String name,
   double price,
   String img,
-  String id,
   String unity,
 }) {
   return Container(
@@ -62,14 +61,16 @@ Container productCard({
                   fontFamily: fontFamily),
             ),
             Text(
-              "MZN $price /$unity" ?? "Preço desconhecido",
+              "MZN $price por $unity" ?? "Preço desconhecido",
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  color: Colors.black.withOpacity(.8),
-                  fontSize: smallSize - 1,
-                  //fontWeight: FontWeight.w500,
-                  fontFamily: fontFamily),
+                color: Colors.black.withOpacity(.8),
+                fontSize: smallSize - 1,
+                letterSpacing: .2,
+                //fontWeight: FontWeight.w500,
+                fontFamily: fontFamily,
+              ),
             ),
           ],
         ),

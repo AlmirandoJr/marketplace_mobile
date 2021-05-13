@@ -110,13 +110,16 @@ class _TimelinePageState extends State<TimelinePage> {
                 itemCount: demoProducts.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  demoProducts.sort((b, a) {
-                    return b.qtdSold.compareTo(a.qtdSold);
-                  });
+                  demoProducts.sort((a, b) => b.price.compareTo(a.price));
+                  //demoProducts.reversed;
+
                   var item = demoProducts[index];
+
                   return GestureDetector(
                     onTap: () {
-                      Get.to(() => ProductDescription(product: item));
+                      Get.to(() => ProductDescription(
+                            product: item,
+                          ));
                     },
                     child: productCard(
                       img: item.images[0],
@@ -135,22 +138,6 @@ class _TimelinePageState extends State<TimelinePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "MEUS VENDEDORES",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                ),
-                Text(
-                  "VER TODOS",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11,
-                      color: Colors.black.withOpacity(.6)),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
                   "LEGUMES",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
@@ -163,7 +150,40 @@ class _TimelinePageState extends State<TimelinePage> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 5,
+            ),
             Container(
+              height: Get.height * 0.32,
+              child: ListView.builder(
+                itemCount: demoProducts.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  demoProducts.sort((a, b) => b.rating.compareTo(a.rating));
+                  demoProducts.reversed;
+
+                  var item = demoProducts[index];
+
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => ProductDescription(
+                            product: item,
+                          ));
+                    },
+                    child: productCard(
+                      img: item.images[0],
+                      name: item.title,
+                      price: item.price,
+                      unity: item.unity,
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            /*Container(
               height: Get.height * 0.32,
               child: ListView.builder(
                 itemCount: 5,
@@ -174,10 +194,11 @@ class _TimelinePageState extends State<TimelinePage> {
                     name: "REPOLHO",
                     price: 200,
                     unity: "Kg",
+                    id: 1.toString(),
                   );
                 },
               ),
-            ),
+            ),*/
             SizedBox(
               height: 5,
             ),

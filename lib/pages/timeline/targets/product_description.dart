@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:marketplace/core/model/product_model.dart';
+import 'package:marketplace/pages/profile/targets/seller_description.dart';
 import 'package:marketplace/pages/timeline/targets/widgets/product_images.dart';
 import 'package:marketplace/utils/global.dart';
 import 'package:marketplace/utils/widgets/product_card.dart';
@@ -10,6 +10,7 @@ import 'package:marketplace/utils/widgets/rounded_button.dart';
 
 class ProductDescription extends StatelessWidget {
   final Product product;
+
   const ProductDescription({Key key, this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -250,7 +251,12 @@ class ProductDescription extends StatelessWidget {
                         textColor: Colors.white,
                         isCota: true,
                         press: () {
-                          //Get.to(IndexPage());
+                          Get.to(SellerDescription(
+                            sellerImage: product.sellerImage,
+                            sellerRating: product.rating,
+                            sellerMarket: product.sellerMarket,
+                            sellerName: product.sellerName,
+                          ));
                         },
                       ),
                     ),
@@ -279,7 +285,7 @@ class ProductDescription extends StatelessWidget {
                       var item = demoProducts[index];
                       return GestureDetector(
                         onTap: () {
-                          Get.to(() => ProductDescription(product: item));
+                          Get.to(ProductDescription(product: item));
                         },
                         child: productCard(
                           img: item.images[0],
