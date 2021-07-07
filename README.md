@@ -6,7 +6,7 @@
 ## Apresentação
 
 - SCREENSHOTS
-- 
+
 | On-Boarding  |  Registo  | Home |
 | ------------------- | ------------------- | ------------------- |
 |  <img src="./assets/01_on-boarding.png" alt="App on-boarding"> |  <img src="./assets/02_register.png" alt="Registo"> |   <img src="./assets/03_home.png" alt="App Home">		  |
