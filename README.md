@@ -1,6 +1,6 @@
 # Marketplace
 
-<p>Um plicativo móvel para sistema Android, concebido para plataformas Android e iOS. Efectua busca, visualização, compra e venda de horticulas em municipios.
+<p>Um plicativo móvel para sistema Android, concebido para plataformas Android e iOS com o objectivo de dinamizar a compra e venda de horticulas em mercados municipais.
 </p>
 
 ## Apresentação
